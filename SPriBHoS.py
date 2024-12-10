@@ -227,7 +227,7 @@ def epsilon_horizon_crosing(rmNt):
 #we compute the compaction function
 def compact_function(Mv,Rv,efrw):
 	Cc = 2*(Mv[:-1]-(4./3.)*pi*efrw[:-1]*Rv[:-1]**3)/Rv[:-1]
-	Cc = np.insert(Cc, -1, 0.)
+	Cc = np.append(Cc,0.)
 	return Cc
 
 # Computation of the variables after each RK cycle

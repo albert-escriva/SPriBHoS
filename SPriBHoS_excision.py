@@ -221,7 +221,7 @@ def epsilon_horizon_crosing(rmNt):
 #we compute the compaction function
 def compact_function(Mv,Rv,efrw):
 	Cc = 2*(Mv[:-1]-(4./3.)*pi*efrw[:-1]*Rv[:-1]**3)/Rv[:-1]
-	Cc = np.insert(Cc, -1, 0.)
+	Cc = np.append(Cc,0.)
 	return Cc
 
 # Computation of the variables after each RK cycle
@@ -366,7 +366,13 @@ def system_static_excision(epc,Mpc,Rpc,Upc,e_FRWc):
 #We define the full 2M/R, to locate the position of the AH
 def compact_full(Mv,Rv,efrw):
 	Cc = 2*(Mv[:-1])/Rv[:-1]
-	Cc = np.insert(Cc, -1, 0.)
+	Cc = np.append(Cc,0.)
+	return Cc
+
+
+#We define the full 2M/R, to locate the position of the AH during excision
+def compact_full_exc(Mv,Rv,efrw):
+	Cc = 2*(Mv)/Rv
 	return Cc
 
 
@@ -477,7 +483,7 @@ def search(thresh):
 	derebc = np.dot(Dexcision,evex)[-1]
 
 
-	CC = compact_full(Mvex,Rvex,e_FRW)
+	CC = compact_full_exc(Mvex,Rvex,e_FRW)
 	past_position_horizon = r_horizon
 		
 	
@@ -507,7 +513,7 @@ def search(thresh):
 		intervM_interp = interpolate.interp1d(x_excision, Mvex ,kind='cubic')
 
 
-		CC = compact_full(Mvex,Rvex,e_FRW)
+		CC = compact_full_exc(Mvex,Rvex,e_FRW)
 
 		new_horizon_position = search_horizon(CC,x_excision,x_excision[-1],x_excision[-1]+rmww/2)
 		masa_final_bh = intervM_interp(new_horizon_position)
