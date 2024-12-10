@@ -1,5 +1,4 @@
-
-# Method based on L. N. Trefethen,Spectral  Methods  in  MATLAB(SIAM,2000) and http://blue.math.buffalo.edu/438/trefethen_spectral/all_py_files/
+## Method based on L. N. Trefethen,Spectral  Methods  in  MATLAB(SIAM,2000) and http://blue.math.buffalo.edu/438/trefethen_spectral/all_py_files/
 import numpy as np
 import math
 pi = math.pi

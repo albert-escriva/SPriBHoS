@@ -1,6 +1,4 @@
-
-
-#In this modulus is computed the value of the amplitude of the perturbation for a given value of delta.
+##In this modulus is computed the value of the amplitude of the perturbation for a given value of delta.
 import numpy as np
 from curvature_profiles import curvature_profile
 
